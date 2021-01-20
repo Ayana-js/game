@@ -31,13 +31,6 @@ function easyLevel() {
     hard.classList.add('levels__rhomb');
   }
 
-  easyLevel();
-  game.addEventListener('click',e => clickCard (e.target));
-  easy.addEventListener('click',easyLevel);
-  middle.addEventListener('click',middleLevel);
-  hard.addEventListener('click',hardLevel);
-  start.addEventListener('click',newGame);
-
 
   function newGame() {
     wrapper.classList.add('hidden');
@@ -55,16 +48,20 @@ function easyLevel() {
     arrayCard.forEach(element => createCard(element));
 }
 
+  // function createCard(element){
+  //   let containerCard = document.createElement('div');
+  //   containerCard.classList.add('container-card');
+  //   containerCard.id = 'container';
 
-
-
- function createCard(element){
+  function createCard(element){
     let cardTemplate = document.createElement('div');
     cardTemplate.classList.add('card-template');
     cardTemplate.id = 'template';
   
     let card = document.createElement("div");
     card.classList.add('card-facedown');
+    card.id = 'cardFacedown'
+
   
     let img = document.createElement('img');
     img.classList.add('card-facedown');
@@ -74,7 +71,11 @@ function easyLevel() {
     let cardBack = document.createElement("div");
     cardBack.classList.add('card-bug');
 
-  
+    let image = document.createElement('img');
+    image.classList.add('card-bug');
+    image.src = "img/card_bug.png";
+    image.id = 'cardBug';
+
     let bugCard = element;
    
     game.appendChild(cardTemplate);
@@ -82,6 +83,7 @@ function easyLevel() {
     cardTemplate.appendChild(cardBack);
     card.appendChild(img);
     cardBack.appendChild(bugCard);
+    cardBack.appendChild(image)
     card.onmouseover = function(event) {
     card.classList.add('active');
     }
@@ -97,14 +99,21 @@ function easyLevel() {
     return backCard
   }
   
-  function clickCard (card) {
+  function click(card) {
     let click = card.parentNode.parentNode;
-      if (click.id == 'template'){
+      if (click.id == 'template') {
         click.classList.add ('click-button');
         click.addEventListener('click', goToMenu);
     }
-    function goToMenu (){
+    function goToMenu() {
       location.reload();
     }
   }
-  
+
+
+  easyLevel();
+  game.addEventListener('click',e => click (e.target));
+  easy.addEventListener('click',easyLevel);
+  middle.addEventListener('click',middleLevel);
+  hard.addEventListener('click',hardLevel);
+  start.addEventListener('click',newGame);

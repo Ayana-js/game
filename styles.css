@@ -80,12 +80,12 @@ body {
 }
 
 .game {
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-  padding-top: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 160vh;
+  width: 100%;
+  padding-top: 50px;
   margin: auto auto;
-  max-width: 1200px;
 }
 
 .card-template {
@@ -99,7 +99,6 @@ body {
 
 .card-facedown,
 .card-bug {
-  float: right;
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -110,6 +109,7 @@ body {
 }
 
 .active:hover {
+  box-shadow: 15px 15px 15px rgba(0,0,0,0.5);
   transform: translateY(10px) rotate(-3deg);
 }
 
@@ -143,8 +143,7 @@ body {
   }
 
   .game {
-    display: flex;
-    height: 100vh;
+    height: 160vh;
   }
 
   .width-small {
@@ -165,17 +164,22 @@ body {
 } 
 
 @media (min-width: 520px) and (max-width: 730px) {
-  .wrapper {
-    width: 95%;
-    height: 100vh;
+  
+  .card-facedown,
+  .card-bug {
+    width: 150px;
+    height: 250px;
+  }
+  
+  .small-card {
+    height: 70vh;
   }
   
   .game {
-    height: 100%;
+    height: 120vh;
     padding-top: 10px;
-    margin: 0 auto;
-    text-align: center;
-    width: 310px;
+    padding-left: 20px;
+    margin: auto auto;
   }
 
   .choice {
@@ -207,19 +211,19 @@ body {
 } 
 
 @media (max-width:520px) {
-  .wrapper {
-    width: 95%;
-    height: 100vh;
-  }
-
   .game {
-    display: flex;
     margin: auto auto;
-    width: 320px;
-    height: 100%;
+    height: 85vh;
     padding-top: 10px;
-    text-align: center;
-    width: 310px;
+    /* padding-right: 10px; */
+    /* padding-left: 10px; */
+    /* width: 90%; */
+  }
+  
+  .card-facedown,
+  .card-bug {
+    width: 100px;
+    height: 180px;
   }
 
   .cards {
