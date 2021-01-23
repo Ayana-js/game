@@ -109,8 +109,7 @@ body {
 }
 
 .active:hover {
-  box-shadow: 15px 15px 15px rgba(0,0,0,0.5);
-  transform: translateY(10px) rotate(-3deg);
+  transform:  rotate(-3deg);
 }
 
 .click-button {
@@ -215,9 +214,6 @@ body {
     margin: auto auto;
     height: 85vh;
     padding-top: 10px;
-    /* padding-right: 10px; */
-    /* padding-left: 10px; */
-    /* width: 90%; */
   }
   
   .card-facedown,

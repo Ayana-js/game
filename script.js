@@ -41,17 +41,12 @@ function easyLevel() {
        game.classList.add('width-small');
   }
     for (i = 0; i < level; i++){
-       getBackCard();
+      getBackCard();
     }
     let randomIndex = Math.floor(Math.random() * level);
     arrayCard[randomIndex].src = bug;
-    arrayCard.forEach(element => createCard(element));
+    arrayCard.forEach(element => createCard(element),);
 }
-
-  // function createCard(element){
-  //   let containerCard = document.createElement('div');
-  //   containerCard.classList.add('container-card');
-  //   containerCard.id = 'container';
 
   function createCard(element){
     let cardTemplate = document.createElement('div');
@@ -84,7 +79,7 @@ function easyLevel() {
     card.appendChild(img);
     cardBack.appendChild(bugCard);
     cardBack.appendChild(image)
-    card.onmouseover = function(event) {
+    card.onmouseover = function() {
     card.classList.add('active');
     }
   }
@@ -103,16 +98,17 @@ function easyLevel() {
     let click = card.parentNode.parentNode;
       if (click.id == 'template') {
         click.classList.add ('click-button');
-        click.addEventListener('click', goToMenu);
+          click.addEventListener('click', goToMenu);
     }
+
     function goToMenu() {
       location.reload();
     }
   }
 
-
+  
   easyLevel();
-  game.addEventListener('click',e => click (e.target));
+  game.addEventListener('click',e => click (e.target), {once:true});
   easy.addEventListener('click',easyLevel);
   middle.addEventListener('click',middleLevel);
   hard.addEventListener('click',hardLevel);
